@@ -1,0 +1,45 @@
+@mixin colo($bgColor: red) {
+  color: $bgColor;
+}
+
+@mixin bgc($bgcColor: red) {
+  background-color: $bgcColor;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin absoluteCenter($direction: "left") {
+  position: absolute;
+
+  @if $direction == "left" {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @if $direction == "top" {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @if $direction == "both" {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+// reponsive
+
+@mixin maxwidth($value) {
+  @media screen and (max-width: $value) {
+    @content;
+  }
+}
+@mixin minwidth($value) {
+  @media screen and (min-width: $value) {
+    @content;
+  }
+}
